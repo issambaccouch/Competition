@@ -1,0 +1,77 @@
+{% extends 'adminbase.html.twig' %}
+{% block body %}
+    <center>
+    <h1> {{ competition.title }}</h1>
+        <div class="center">
+    <table class="table">
+        <tbody>
+        <tr>
+            <th></th>
+            <td><img src="{{ competition.media }}"></td>
+        </tr>
+            <tr>
+                <th>Idcmpt</th>
+                <td>{{ competition.idCmpt }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ competition.title }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ competition.type }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ competition.description }}</td>
+            </tr>
+            <tr>
+                <th>Datecreate</th>
+                <td>{% if competition.dateCreate %}{{ competition.dateCreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datestart</th>
+                <td>{% if competition.dateStart %}{{ competition.dateStart|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{% if competition.dateFin %}{{ competition.dateFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ competition.ville }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ competition.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Codepost</th>
+                <td>{{ competition.codePost }}</td>
+            </tr>
+            <tr>
+                <th>Nbrpart</th>
+                <td>{{ competition.nbrPart }}</td>
+            </tr>
+            <tr>
+                <th>Prize</th>
+                <td>{{ competition.prize }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+            <span>Nombre des vues :{{ competition.nbviewrs }}</span>
+    <ul>
+        <li>
+            <a href="{{ path('admin_competition_index') }}">Retourner à la list</a>
+        </li>
+
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+        </div>
+    </center>
+{% endblock %}

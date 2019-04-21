@@ -1,0 +1,25 @@
+admin_competition_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:Default:listcompet" }
+    methods:  GET
+
+admin_competition_show:
+    path:     /{idCmpt}/show
+    defaults: { _controller: "AdminBundle:Default:showcompet" }
+    methods:  GET
+
+admin_competition_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:Default:newcompet" }
+    methods:  [GET, POST]
+
+admin_competition_edit:
+    path:     /{idCmpt}/edit
+    defaults: { _controller: "AdminBundle:Default:editcopet" }
+    methods:  [GET, POST]
+
+admin_competition_delete:
+    path:     /{idCmpt}/delete
+    defaults: { _controller: "AdminBundle:Default:deletecompet" }
+    methods:  DELETE
+

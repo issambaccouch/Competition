@@ -1,0 +1,42 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block body %}
+    <h1>Compitiondemandes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Idcompt</th>
+                <th>Iduser</th>
+                <th>Admindecision</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compitiondemande in compitiondemandes %}
+            <tr>
+                <td><a href="{{ path('compitiondemande_show', { 'id': compitiondemande.id }) }}">{{ compitiondemande.id }}</a></td>
+                <td>{{ compitiondemande.idcompt }}</td>
+                <td>{{ compitiondemande.iduser }}</td>
+                <td>{{ compitiondemande.admindecision }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('compitiondemande_show', { 'id': compitiondemande.id }) }}">afficher</a>
+                        </li>
+                        <li>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compitiondemande_new') }}">Créer une nouvelle compition demande</a>
+        </li>
+    </ul>
+{% endblock %}

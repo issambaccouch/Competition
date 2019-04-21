@@ -1,0 +1,25 @@
+competition_index:
+    path:     /
+    defaults: { _controller: "CompetitionBundle:Competitions:index" }
+    methods:  GET
+
+competition_show:
+    path:     /{idCmpt}/show
+    defaults: { _controller: "CompetitionBundle:Competitions:show" }
+    methods:  GET
+
+competition_new:
+    path:     /new
+    defaults: { _controller: "CompetitionBundle:Competitions:new" }
+    methods:  [GET, POST]
+
+competition_edit:
+    path:     /{idCmpt}/edit
+    defaults: { _controller: "CompetitionBundle:Competitions:edit" }
+    methods:  [GET, POST]
+
+competition_delete:
+    path:     /{idCmpt}/delete
+    defaults: { _controller: "CompetitionBundle:Competitions:delete" }
+    methods:  DELETE
+

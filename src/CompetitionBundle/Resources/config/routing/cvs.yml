@@ -1,0 +1,24 @@
+Cvs_index:
+    path:     /
+    defaults: { _controller: "CompetitionBundle:Cvs:index" }
+    methods:  GET
+
+Cvs_show:
+    path:     /{idCv}/show
+    defaults: { _controller: "CompetitionBundle:Cvs:show" }
+    methods:  GET
+
+Cvs_new:
+    path:     /new
+    defaults: { _controller: "CompetitionBundle:Cvs:new" }
+    methods:  [GET, POST]
+
+Cvs_edit:
+    path:     /{idCv}/edit
+    defaults: { _controller: "CompetitionBundle:Cvs:edit" }
+    methods:  [GET, POST]
+
+Cvs_delete:
+    path:     /{idCv}/delete
+    defaults: { _controller: "CompetitionBundle:Cvs:delete" }
+    methods:  DELETE

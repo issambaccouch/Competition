@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cv</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idcv</th>
+                <td>{{ cv.idCv }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ cv.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ cv.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{% if cv.dateNaissance %}{{ cv.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Telphonemobile</th>
+                <td>{{ cv.telphoneMobile }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ cv.pays }}</td>
+            </tr>
+            <tr>
+                <th>Codepostal</th>
+                <td>{{ cv.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Diplome</th>
+                <td>{{ cv.diplome }}</td>
+            </tr>
+            <tr>
+                <th>Photos</th>
+                <td>{{ cv.photos }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ cv.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        {% if is_granted('ROLE_ADMIN') %}
+        <li>
+            <a href="{{ path('Cvs_index') }}">Back to the list</a>
+        </li>
+        {% endif %}
+        <li>
+            <a href="{{ path('Cvs_edit', { 'idCv': cv.idCv }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    <p>Modèle de CV sélectionné</p>
+    <select id="CV_MODELE" size="1" name="modelecv">
+
+        <option value="Blanc - Bleu.docx">Blanc - Bleu.docx</option>
+
+        <option value="Blanc - Rouge.docx">Blanc - Rouge.docx</option>
+
+        <option value="Blanc - Violet.docx">Blanc - Violet.docx</option>
+
+    </select>
+
+    <a href="{{ path('Cvs_index') }}" name="ENREGISTRER" value="Générer votre CV" >Générer votre CV</a>
+{% endblock %}

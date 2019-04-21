@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Offre</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idoffre</th>
+                <td>{{ offre.idOffre }}</td>
+            </tr>
+            <tr>
+                <th>Idadmin</th>
+                <td>{{ offre.idAdmin }}</td>
+            </tr>
+            <tr>
+                <th>Idpartenaire</th>
+                <td>{{ offre.idPartenaire }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ offre.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ offre.description }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ offre.type }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ offre.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Datecreate</th>
+                <td>{% if offre.dateCreate %}{{ offre.dateCreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{% if offre.dateFin %}{{ offre.dateFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ offre.ville }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ offre.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Codepost</th>
+                <td>{{ offre.codePost }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('offres_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('offres_edit', { 'idOffre': offre.idOffre }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

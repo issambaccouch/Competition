@@ -1,0 +1,35 @@
+<?php
+
+namespace CompetitionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * GroupUsers
+ *
+ * @ORM\Table(name="group_users", indexes={@ORM\Index(name="IDX_44AF8E8ED98C6774", columns={"id_GUuser"}), @ORM\Index(name="IDX_44AF8E8E35FC1765", columns={"id_GUgroup"})})
+ * @ORM\Entity
+ */
+class GroupUsers
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_GUgroup", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idGugroup;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_GUuser", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idGuuser;
+
+
+}
+

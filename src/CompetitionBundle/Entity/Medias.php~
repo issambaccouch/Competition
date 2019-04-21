@@ -1,0 +1,54 @@
+<?php
+
+namespace CompetitionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Medias
+ *
+ * @ORM\Table(name="medias", indexes={@ORM\Index(name="fk_medias_users1_idx", columns={"id_user"})})
+ * @ORM\Entity
+ */
+class Medias
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_media", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idMedia;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_user", type="integer", nullable=true)
+     */
+    private $idUser;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=150, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=45, nullable=true)
+     */
+    private $type;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_create", type="datetime", nullable=true)
+     */
+    private $dateCreate;
+
+
+}
+

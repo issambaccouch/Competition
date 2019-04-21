@@ -1,0 +1,23 @@
+competition_competition:
+    resource: "@CompetitionBundle/Resources/config/routing/competitions.yml"
+    prefix:   /competition
+
+competition_compitiondemande:
+    resource: "@CompetitionBundle/Resources/config/routing/compitiondemande.yml"
+    prefix:   /compitiondemande
+
+competition_homepage:
+    path:     /comphome
+    defaults: { _controller: CompetitionBundle:Default:index }
+
+adddemandecompt:
+    path:     /adddemandecompt/{id}
+    defaults: { _controller: CompetitionBundle:Compitiond:addcompitition }
+
+recherche:
+    path:     /recherche
+    defaults: { _controller: CompetitionBundle:recherche:recherche }
+
+rechercheajax:
+    path:     /rechercheajax
+    defaults: { _controller: CompetitionBundle:recherche:rechercheajax }

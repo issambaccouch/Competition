@@ -1,0 +1,74 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block body %}
+
+    <center><h1>Competitions list</h1></center>
+    <div class="navigation">
+        <center>
+            {{ knp_pagination_render(competitions) }}
+        </center>
+    </div>
+    <center>
+        {% for competition in competitions %}
+            <div class="section mcb-section" style="padding-top:60px; padding-bottom:20px; background-color:#f0f1f2">
+                <div class="section_wrapper mcb-section-inner">
+                    <!-- One Second (1/2) Column -->
+                    <div class="wrap mcb-wrap one-second  clearfix">
+                        <!-- One Full Row-->
+                        <div class="column mcb-column one column_image ">
+                            <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                <div class="image_wrapper"><img class="scale-with-grid" src="{{ competition.media }}" alt="" width="573" height="338" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- One Second (1/2) Column -->
+                    <div class="wrap mcb-wrap one-second  column-margin-20px clearfix">
+                        <!-- One Full Row-->
+                        <div class="column mcb-column one column_column">
+                            <div class="column_attr">
+                                <h2>{{ competition.title }}</h2>
+                                <h6>{{ competition.type }}</h6>
+                                <p>
+                                    {{ competition.description }}
+                                </p>
+                            </div>
+                        </div>
+                        <!-- One Full Row-->
+                        <div class="column mcb-column one column_column">
+                            <div class="column_attr">
+                                <h3 class="themecolor">Prize </h3>
+                                <p>
+                                    <b>{{ competition.prize }}</b>
+                                </p>
+                                <h3 class="themecolor">Nombre des places :</h3>
+                                <p>
+                                    <b>{{ competition.nbrPart }}</b>
+                                </p>
+
+                                    <li >
+                                        <a href="{{ path('admin_competition_show', { 'idCmpt': competition.idCmpt }) }}" class="text-primary">Consulter</a>
+                                    </li>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </center>
+    <br>
+      <br> <br>
+      {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PARTENAIRE') %}
+          <ul>
+              <li>
+                  <center> <a href="{{ path('admin_competition_new') }}"><h1 style="color: #1ca7cc">Créer une nouvelle competition</h1></a></center>
+              </li>
+          </ul>
+      {% endif %}
+
+
+
+{% endblock %}
+

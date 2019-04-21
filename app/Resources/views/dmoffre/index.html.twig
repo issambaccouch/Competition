@@ -1,0 +1,41 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block body %}
+    <h1>Demande d'offres list</h1>
+    {% if is_granted('ROLE_PARTENAIRE') %}
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Idoffer</th>
+                <th>Iduser</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dmoffre in dmoffres %}
+            <tr>
+                <td><a href="{{ path('dmoffre_show', { 'id': dmoffre.id }) }}">{{ dmoffre.id }}</a></td>
+                <td>{{ dmoffre.idoffer }}</td>
+                <td>{{ dmoffre.iduser }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('dmoffre_show', { 'id': dmoffre.id }) }}">show</a>
+                        </li>
+                        <li>
+
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+        {% else %}
+        seulement les PARTENAIRES peut consulter les lists des demandes
+    {% endif %}
+
+
+{% endblock %}

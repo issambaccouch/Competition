@@ -1,0 +1,61 @@
+<?php
+
+namespace CompetitionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Messages
+ *
+ * @ORM\Table(name="messages", indexes={@ORM\Index(name="fk_messages_users_idx", columns={"envoyeur"}), @ORM\Index(name="fk_messages_users1_idx", columns={"recepteur"})})
+ * @ORM\Entity
+ */
+class Messages
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_msg", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idMsg;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="envoyeur", type="integer", nullable=true)
+     */
+    private $envoyeur;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="recepteur", type="integer", nullable=true)
+     */
+    private $recepteur;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_envoi", type="datetime", nullable=true)
+     */
+    private $dateEnvoi;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="type", type="integer", nullable=true)
+     */
+    private $type;
+
+
+}
+

@@ -1,0 +1,35 @@
+<?php
+
+namespace CompetitionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UsersEvent
+ *
+ * @ORM\Table(name="users_event", indexes={@ORM\Index(name="IDX_DCD9AEEE6B3CA4B", columns={"id_user"}), @ORM\Index(name="IDX_DCD9AEEED52B4B97", columns={"id_event"})})
+ * @ORM\Entity
+ */
+class UsersEvent
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_user", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idUser;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_event", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idEvent;
+
+
+}
+

@@ -1,0 +1,274 @@
+<!doctype html>
+<html class="fixed sidebar-left-collapsed">
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+    <title>Admin - {% block title %}Welcome!{% endblock %}</title>
+
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+
+    <link rel="stylesheet" href="{{ absolute_url(asset('assests/vendor/bootstrap/css/bootstrap.css')) }}" />
+    <link rel="stylesheet" href="{{ absolute_url(asset('assests/vendor/font-awesome/css/font-awesome.css')) }}" />
+    <link rel="stylesheet" href="{{ absolute_url(asset('assests/vendor/magnific-popup/magnific-popup.css')) }}" />
+
+    <link rel="stylesheet" href=" {{ absolute_url(asset('assests/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css')) }}" />
+    <link rel="stylesheet" href=" {{ absolute_url(asset('assests/vendor/bootstrap-datepicker/css/bootstrap-datepicker.css')) }}" />
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="{{ absolute_url(asset('assests/vendor/owl.carousel/assets/owl.carousel.css')) }}" />
+    <link rel="stylesheet" href="{{ absolute_url(asset('assests/vendor/owl.carousel/assets/owl.theme.default.css')) }}" />
+    <!-- Theme CSS -->
+
+    <link rel="stylesheet" href="{{ absolute_url(asset('assests/stylesheets/theme.css')) }}" />
+
+    <!-- Skin CSS -->
+
+    <link rel="stylesheet" href="{{ absolute_url(asset('assests/stylesheets/skins/default.css')) }}" />
+
+    <!-- Theme Custom CSS -->
+
+    <link rel="stylesheet" href="{{ absolute_url(asset('assests/stylesheets/theme-custom.css')) }}">
+
+    <!-- Head Libs -->
+
+    <script src="{{ absolute_url(asset('assests/vendor/modernizr/modernizr.js')) }}"></script>
+
+</head>
+<body>
+<section class="body">
+
+    <!-- start: header -->
+    <header class="header">
+
+        <!-- start: search & user box -->
+        <div class="header-right">
+
+            <span class="separator"></span>
+
+            <div id="userbox" class="userbox">
+                <a href="#" data-toggle="dropdown">
+                    <figure class="profile-picture">
+                        <img src="" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
+                    </figure>
+                    <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                        <span class="name"> </span>
+                        <span class="role">administrator</span>
+                    </div>
+
+                    <i class="fa custom-caret"></i>
+                </a>
+
+                <div class="dropdown-menu">
+                    <ul class="list-unstyled">
+                        <li class="divider"></li>
+                        <li>
+                            <a role="menuitem" tabindex="-1" href=""><i class="fa fa-user"></i> My Profile</a>
+                        </li>
+                        <li>
+                            <a role="menuitem" tabindex="-1" href=""><i class="fa fa-power-off"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end: search & user box -->
+    </header>
+    <!-- end: header -->
+
+    <div class="inner-wrapper">
+        <!-- start: sidebar -->
+        <aside id="sidebar-left" class="sidebar-left">
+
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    Navigation
+                </div>
+                <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <div class="nano">
+                <div class="nano-content">
+                    <nav id="menu" class="nav-main" role="navigation">
+
+                        <ul class="nav nav-main">
+                            <li class="nav-active">
+                                <a href="#">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    <span>Les Actualité</span>
+                                </a>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#">
+                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                    <span>Les Evenements</span>
+                                </a>
+                                <ul class="nav nav-children">
+                                    <li>
+                                        <a href="">
+                                            Statistique
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            Gestion des Evenements
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{path('compitiondemande_index') }}">
+                                            <i class="fas fa-fw fa-chart-area"></i>
+                                            <span>Lists de Participent</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#">
+                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                    <span>Les Competitions</span>
+                                </a>
+                                <ul class="nav nav-children">
+                                    <li>
+                                        <a href="{{ path('admin_competition_index') }}">
+                                            Gestion de Competitions
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('admin_compitiondemande_index') }}">
+                                            Gestion des Participant
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('rechercheajax') }}">
+                                           Recherche Avancée Avec Ajax
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+
+                            </li>
+
+                            <li class="nav-parent">
+                                <a href="#">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    <span>Les Offres de Travailles</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <hr class="separator" />
+
+                    <ul class="nav nav-main">
+                        <li class="nav-parent">
+                            <a href="#">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                <span>Les Utilisateurs</span>
+                            </a>
+                        </li>
+                        <li class="nav-parent">
+                            <a href="#">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                <span>Les Partenaires</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+
+
+                </div>
+
+                <script>
+                    // Maintain Scroll Position
+                    if (typeof localStorage !== 'undefined') {
+                        if (localStorage.getItem('sidebar-left-position') !== null) {
+                            var initialPosition = localStorage.getItem('sidebar-left-position'),
+                                sidebarLeft = document.querySelector('#sidebar-left .nano-content');
+
+                            sidebarLeft.scrollTop = initialPosition;
+                        }
+                    }
+                </script>
+
+
+            </div>
+
+        </aside>
+        <!-- end: sidebar -->
+
+        <section role="main" class="content-body pb-none">
+            <header class="page-header">
+                <h2>{% block pagetitle %}Welcome!{% endblock %}</h2>
+                {% block barebutton %}{% endblock %}
+            </header>
+
+
+
+            <!-- Les Page Containner -->
+
+
+
+
+
+            {% block body %}{% endblock %}
+
+
+
+
+            <!-- End Containner -->
+        </section>
+    </div>
+
+
+</section>
+{% block javascript %}
+<!-- Vendor -->
+
+<script src="{{ absolute_url(asset('assests/vendor/jquery/jquery.js')) }}"></script>
+		<script src="{{ absolute_url(asset('assests/vendor/jquery-browser-mobile/jquery.browser.mobile.js')) }}"></script>
+		<script src="{{ absolute_url(asset('assests/vendor/bootstrap/js/bootstrap.js')) }}"></script>
+		<script src="{{ absolute_url(asset('assests/vendor/nanoscroller/nanoscroller.js')) }}"></script>
+		<script src="{{ absolute_url(asset('assests/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js')) }}"></script>
+		<script src="{{ absolute_url(asset('assests/vendor/magnific-popup/jquery.magnific-popup.js')) }}"></script>
+		<script src="{{ absolute_url(asset('assests/vendor/jquery-placeholder/jquery-placeholder.js')) }}"></script>
+		<!-- Specific Page Vendor -->
+		<script src="{{ absolute_url(asset('assests/vendor/jquery-appear/jquery-appear.js')) }}"></script>
+		<script src="{{ absolute_url(asset('assests/vendor/owl.carousel/owl.carousel.js')) }}"></script>
+		<script src="{{ absolute_url(asset('assests/vendor/isotope/isotope.js')) }}"></script>
+		<!-- Theme Base, Components and Settings -->
+		<script src="{{ absolute_url(asset('assests/javascripts/theme.js')) }}"></script>
+		<!-- Theme Custom -->
+		<script src="{{ absolute_url(asset('assests/javascripts/theme.custom.js')) }}"></script>
+		<!-- Theme Initialization Files -->
+		<script src="{{ absolute_url(asset('assests/javascripts/theme.init.js')) }}"></script>
+		<!-- Examples -->
+		<script src="{{ absolute_url(asset('assests/javascripts/dashboard/examples.landing.dashboard.js')) }}"></script>
+
+
+        {% endblock %}
+</body>
+</html>
+
+
+
+
+

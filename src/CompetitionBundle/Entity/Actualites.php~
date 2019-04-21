@@ -1,0 +1,81 @@
+<?php
+
+namespace CompetitionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Actualites
+ *
+ * @ORM\Table(name="actualites", indexes={@ORM\Index(name="fk_actualites_users1_idx", columns={"id_user"}), @ORM\Index(name="fk_actualites_partenaires1_idx", columns={"id_partenaire"})})
+ * @ORM\Entity
+ */
+class Actualites
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_actualite", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idActualite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=true)
+     */
+    private $date;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="alert", type="integer", nullable=true)
+     */
+    private $alert;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="media", type="string", length=255, nullable=true)
+     */
+    private $media;
+
+    /**
+     * @var \Partenaires
+     *
+     * @ORM\ManyToOne(targetEntity="Partenaires")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_partenaire", referencedColumnName="id_partenaire")
+     * })
+     */
+    private $idPartenaire;
+
+    /**
+     * @var \Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
+     * })
+     */
+    private $idUser;
+
+
+}
+

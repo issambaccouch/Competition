@@ -1,0 +1,34 @@
+
+{% trans_default_domain 'FOSUserBundle' %}
+<center>
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <br>
+    <br>
+    <br>
+    <h1>Vous êtes déjà connecté
+    </h1>
+    <br>
+    <br>
+
+{% elseif is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+{% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+<div class="container">
+    <div class="row">
+
+           <!-- <form action="{{ path('fos_user_registration_register') }}"  id="frmSignUp" method="post" class:'fos_user_registration_register'}"> -->
+                  {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        <div class="box-content">
+            <h4 class="heading-primary text-uppercase mb-3">Register An Account</h4>
+            <div class="form-row">
+                <div class="form-group col">
+                </div>
+            </div>
+                    {{ form_widget(form) }}
+                    <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary float-right mb-5" data-loading-text="Loading..." />
+                  {{ form_end(form) }}
+                </div>
+        </div>
+    </div>
+{% endif %}
+
+</center>

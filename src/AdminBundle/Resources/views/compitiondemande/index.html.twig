@@ -1,0 +1,35 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block body %}
+    <h1>Compitiondemandes list</h1>
+    <table>
+        <thead>
+            <tr>
+                <th> Nom d'utilisateur</th>
+                <th> Titre de Competition</th>
+                <th> Note de Cv </th>
+                <th> Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compitiondemande in compitiondemandes %}
+            <tr>
+                <td><a href="{{ path('admin_compitiondemande_show', { 'id': compitiondemande.id }) }}">{{ compitiondemande.id }}</a></td>
+
+                <td> {{ compitiondemande.username }}</td>
+                <td> {{ compitiondemande.competitiontitre }}</td>
+                <td> {{ compitiondemande.usercv}}%</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_compitiondemande_show', { 'id': compitiondemande.id }) }}">afficher</a>
+                        </li>
+                        <li>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

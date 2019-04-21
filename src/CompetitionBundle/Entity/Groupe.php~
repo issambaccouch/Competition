@@ -1,0 +1,33 @@
+<?php
+
+namespace CompetitionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Groupe
+ *
+ * @ORM\Table(name="groupe", indexes={@ORM\Index(name="fk_group_users1_idx", columns={"id_user"})})
+ * @ORM\Entity
+ */
+class Groupe
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_group", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idGroup;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_user", type="integer", nullable=true)
+     */
+    private $idUser;
+
+
+}
+

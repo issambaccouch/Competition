@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block listeOffre %}
+
+{% endblock %}
+{% block body %}
+    <br>
+    <br>
+    <br>
+
+    <center><h2 style="color: #151A36"><b>List des Offres </b></h2></center>
+    <br>
+    <br>
+    <br>
+
+
+        {% for offre in offres %}
+            <div class="section mcb-section" style="padding-top:60px; padding-bottom:20px; background-color:#f0f1f2">
+                <div class="section_wrapper mcb-section-inner">
+                    <!-- One Second (1/2) Column -->
+                    <div class="wrap mcb-wrap one-second  clearfix">
+                        <!-- One Full Row-->
+                        <div class="column mcb-column one column_image ">
+                            <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                <div class="image_wrapper"><img class="scale-with-grid" src="{{ asset('templating/content/accountant/images/home_accountant_offerslider_1.png')}}" alt="" width="573" height="338" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- One Second (1/2) Column -->
+                    <div class="wrap mcb-wrap one-second  column-margin-20px clearfix">
+                        <!-- One Full Row-->
+                        <div class="column mcb-column one column_column">
+                            <div class="column_attr">
+                                <h2>{{ offre.title }}</h2>
+                                <h6>{{ offre.description }}</h6>
+                                <p>
+                                    {{ offre.description }}
+                                </p>
+                            </div>
+                        </div>
+                        <!-- One Full Row-->
+                        <div class="column mcb-column one column_column">
+                            <div class="column_attr">
+                                <h3 class="themecolor">Type<span style="font-size: 20px;">/mth</span></h3>
+                                <p>
+                                    {{ offre.type }}
+                                </p>
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                {% if is_granted('ROLE_USER') %}
+                                    {% set myVal = 0 %}
+                                    {% for do in dmoffre %}
+                                        {% if do.idoffer ==offre.idOffre and do.iduser== user %}
+                                        {% set myVal = myVal + 1 %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    <label>nembre de demande d'offer {{ myVal }}</label>
+                                    {% if myVal > 0  %}
+                                        <input style="color: #B1DCFB" type="button" value="Vous étes deja demander" class="Disabled"/>
+
+                                    {% else %}
+                                    <a class="button  button_js" href="{{ path('adddemandeoffer',{'id':offre.idOffre })}}"><span class="button_label">Envoyer Demande</span></a>
+                                    {% endif %}
+                                {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_granted('ROLE_PARTENAIRE') %}
+    <ul>
+        <li>
+            <a href="{{ path('offres_new') }}">Create a new offre</a>
+        </li>
+    </ul>
+    {% endif %}
+    {% for do in dmoffre %}
+    {{ do.id }}
+    {{ do.idoffer }}
+    {{ do.iduser }}
+    {% endfor %}
+{% endblock %}

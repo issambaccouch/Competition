@@ -1,0 +1,53 @@
+
+    <center><h1 class="text-danger">Recherche Avancee avec Ajax </h1></center>
+    <div class="active-pink-3 active-pink-4 mb-4">
+        <input class="form-control" name="nom" id="cle" type="text" placeholder="Search" aria-label="Search">
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nom De l'utilisateur</th>
+            <th scope="col">Titre de competition</th>
+            <th scope="col">Note De Cv </th>
+        </tr>
+        </thead>
+        <tbody id="tb">
+        {% for cat in cats %}
+            <tr>
+                <td>
+                    <center>{{ cat.username }}</center>
+                </td>
+                <td>
+                    <center>{{ cat.competitiontitre }}</center>
+                </td>
+                <td >
+                    <center>{{ cat.usercv}}</center>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <script src="{{asset('jquery.js')}}"></script>
+    <script>
+
+        $('#cle').keyup(
+            function () {
+                var input=$('#cle').val();
+                $.ajax({
+                    url:'{{path('rechercheajax')}}',
+                    type:'POST',
+                    data:{'nom':input},
+                    success:function(data,xhr){
+                        $('#tb').empty();
+                        $.each(data,function (i,ele){
+                            $('#tb').append(
+                                "<tr >"+
+                                "<td>"+ele.username+"</td>"+
+                                "<td>"+ele.competitiontitre+"</td>"+
+                                "<td>"+ele.usercv+"</td>"+
+                                "</tr>"
+                            )
+                        })}
+                })
+            }
+        )
+    </script>

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Compitiondemande</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compitiondemande.id }}</td>
+            </tr>
+            <tr>
+                <th>Idcompt</th>
+                <td>{{ compitiondemande.idcompt }}</td>
+            </tr>
+            <tr>
+                <th>Iduser</th>
+                <td>{{ compitiondemande.iduser }}</td>
+            </tr>
+            <tr>
+                <th>Admindecision</th>
+                <td>{{ compitiondemande.admindecision }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compitiondemande_index') }}">retourner à la list</a>
+        </li>
+
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

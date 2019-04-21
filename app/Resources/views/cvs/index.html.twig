@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+
+   <center><h2 style="color: #151A36"><b>List des CVS </b></h2></center>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Idcv</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Datenaissance</th>
+                <th>Telphonemobile</th>
+                <th>Pays</th>
+                <th>Codepostal</th>
+                <th>Diplome</th>
+                <th>Photo</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set myVal = 0 %}
+        {% for cv in cvs %}
+            {% if cv.user == user %}
+            {% set myVal = myVal + 1 %}
+            <tr>
+                <td><a href="{{ path('Cvs_show', { 'idCv': cv.idCv }) }}">{{ cv.idCv }}</a></td>
+                <td>{{ cv.nom }}</td>
+                <td>{{ cv.prenom }}</td>
+                <td>{% if cv.dateNaissance %}{{ cv.dateNaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>c</td>
+                <td>{{ cv.pays }}</td>
+                <td>{{ cv.codePostal }}</td>
+                <td>{{ cv.diplome }}</td>
+                <td><img src="{{ asset('image/') }}{{ cv.photos }}"style="width: 50px ; height: 50px"></td>
+                <td>{{ cv.description }}</td>
+                <td>
+                    <ul>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <li>
+                            <a href="{{ path('Cvs_show', { 'idCv': cv.idCv }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('Cvs_edit', { 'idCv': cv.idCv }) }}">edit</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </td>
+            </tr>
+
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+   {% if myVal==0 %}
+       <center>
+    <ul>
+        <li>
+            <a href="{{ path('Cvs_new') }}"><h1 style="color: #6ce26c">Aucun CV exist, Créer un nouveau CV</h1></a>
+        </li>
+    </ul>
+       </center>
+       <br>
+       <br>
+       <br>
+   {% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+admin_compitiondemande_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:Default:indexdem" }
+    methods:  GET
+
+admin_compitiondemande_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:Default:showdem" }
+    methods:  GET
+
+admin_compitiondemande_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:Default:newdem" }
+    methods:  [GET, POST]
+
+admin_compitiondemande_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:Default:editdem" }
+    methods:  [GET, POST]
+
+admin_compitiondemande_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:Default:deletedem" }
+
+admin_compitiondemande_decision:
+    path:     /{id}/decision
+    defaults: { _controller: "AdminBundle:Default:admindecision" }

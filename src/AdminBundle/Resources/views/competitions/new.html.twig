@@ -1,0 +1,18 @@
+{% extends 'adminbase.html.twig' %}
+{% block body %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <h1>Competition creation</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+                    <input type="submit" value="Create" />
+    {{ form_end(form) }}
+    <ul>
+        <li>
+            <a href="{{ path('competition_index') }}">Back to the list</a>
+        </li>
+    </ul>
+        </div>
+{% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+tu veux connecter d'abord
+{% endif %}
+{% endblock %}

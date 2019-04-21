@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cv creation</h1>
+
+    <div class="section mcb-section" style="padding-top:80px; padding-bottom:30px; background-image:url({{ asset('templating/content/accountant/images/home_accountant_sectionbg1.jpg') }}); background-repeat:no-repeat; background-position:center; ">
+        <div class="section_wrapper mcb-section-inner">
+            <div class="wrap mcb-wrap one  clearfix">
+                <!-- One Full Row-->
+                <div class="column mcb-column one column_column  column-margin-20px">
+                    <div class="column_attr align_center">
+                        <h2 style="color: #fff;">Cv en ligne</h2>
+                    </div>
+                </div>
+                <!-- One Sixth (1/6) Column -->
+                <div class="column mcb-column one-sixth column_placeholder">
+                    <div class="placeholder">
+                        &nbsp;
+                    </div>
+                </div>
+                <!-- Two Third (2/3) Column -->
+                <!-- Two Third (2/3) Column -->
+                <div class="column mcb-column two-third column_column">
+                    <div class="column_attr align_center">
+                        <div id="contactWrapper" >
+                            {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            <input type="submit" value="Create" />
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="{{ path('Cvs_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
